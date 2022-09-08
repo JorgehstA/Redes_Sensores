@@ -1,0 +1,31 @@
+Cynthia
+
+¿Es grande la diferencia de precisión que tienen los métodos no invasivos respecto  de los invasivos?
+
+Para este tipo de aplicación ¿hay algún protocolo de comunicaciones que predomine sobre los demás?¿Razón?
+
+
+En la tecnología de discos de metal conductores, ¿la variación de la impedancia ante variaciones del sudor en la piel no 
+compromete la fiabilidad de las medidas obtenidas? ¿No influye en los capacitivos?
+
+Se habla de máximos en la amplitud de señal obtenida, pero para saber el grado de error en la medida (2uV como mínimo) me gustaría compararla con los valores mínimos dado que es el factor crítico en este caso.
+
+
+¿Cómo se implementaría el magnetómetro en este tipo de aplicaciones?
+
+Se habla del consumo y su dependencia con la frecuencia, ¿en qué órdenes de magnitud en el consumo se estaría trabajando?
+
+
+¿Influye la localización en el consumo?
+
+¿A qué puede deberse la disminución de la precisión al aumentar el número de sensores?
+
+
+¿Al medir intensidad de campo magnético no son más susceptibles de introducir errores?
+
+¿En qué parte de la bota es más conveniente posicionar el sensor? (tobillo, empeine, etc)
+
+
+¿Es susceptible a algún tipo de perturbación externa?
+
+¿Se tiene en cuenta la posibilidad de varios robots autónomos trabajando a la vez?

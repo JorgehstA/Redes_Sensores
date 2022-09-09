@@ -46,9 +46,12 @@ void setup()
 void loop()
 {
   //delay(1000);
-  if (Serial.available() == 0) {     //wait for data available
-    String teststr = Serial.readString();  //read until timeout
-    teststr.trim();                        // remove any \r \n whitespace at the end of the String
+  //wait for data available
+  if (Serial.available() == 0) {     
+    //read until timeout
+    String teststr = Serial.readString();  
+    // remove any \r \n whitespace at the end of the String
+    teststr.trim();                        
     if (teststr == "start") {
       send = true;
     } else if (teststr == "stop"){

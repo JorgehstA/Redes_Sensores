@@ -2,15 +2,17 @@
 #include "WiFi.h"
 #include "ESPAsyncWebServer.h"
 #include "SPIFFS.h"
+#include "ESP32Time.h"
+
+//ESP32Time rtc;
+ESP32Time rtc(0);
 
 // Replace with your network credentials
 const char* ssid = "ONOA3690";
 const char* password = "fXH6Zvm7ppNV";
 
-// Set LED GPIO
-const int ledPin = 2;
 // Stores LED state
-String ledState;
+String timeState;
 
 const char* ntpServer = "pool.ntp.org";
 const long  gmtOffset_sec = 3600;
@@ -19,29 +21,34 @@ const int   daylightOffset_sec = 3600;
 String current_hour = "";
 String current_min = "";
 String current_sec = "";
+boolean a = true;
 
 // Create AsyncWebServer object on port 80
 AsyncWebServer server(80);
 
-// Replaces placeholder with LED state value
-String processor(const String& var){
-  Serial.println(var);
-  if(var == "STATE"){
-    if(digitalRead(ledPin)){
-      ledState = "ON";
+
+String resetTime(const String& var)
+{
+  if(var == "TIME"){
+    struct tm timeinfo;
+    if(!getLocalTime(&timeinfo)){
+      Serial.println("Failed to obtain time");
     }
-    else{
-      ledState = "OFF";
-    }
-    Serial.print(ledState);
-    return ledState;
+    rtc.setTime(-1,00,-1,10,9,2022);
+    current_hour = timeinfo.tm_hour;
+    current_min = timeinfo.tm_min;
+    current_sec = timeinfo.tm_sec;
+    timeState = current_hour + ':' + current_min + ':' + current_sec;
+    //ledState = current_hour;
+    Serial.println(timeState);
+    return timeState;
   }
   return String();
 }
 
 String printLocalTime(const String& var)
 {
-  if(var == "STATE"){
+  if(var == "TIME"){
     struct tm timeinfo;
     if(!getLocalTime(&timeinfo)){
       Serial.println("Failed to obtain time");
@@ -49,10 +56,10 @@ String printLocalTime(const String& var)
     current_hour = timeinfo.tm_hour;
     current_min = timeinfo.tm_min;
     current_sec = timeinfo.tm_sec;
-    ledState = current_hour + ':' + current_min + ':' + current_sec;
+    timeState = current_hour + ':' + current_min + ':' + current_sec;
     //ledState = current_hour;
-    Serial.println(ledState);
-    return ledState;
+    Serial.println(timeState);
+    return timeState;
   }
   return String();
 }
@@ -60,7 +67,6 @@ String printLocalTime(const String& var)
 void setup(){
   // Serial port for debugging purposes
   Serial.begin(115200);
-  pinMode(ledPin, OUTPUT);
 
   // Initialize SPIFFS
   if(!SPIFFS.begin(true)){
@@ -82,6 +88,12 @@ void setup(){
   server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
     request->send(SPIFFS, "/index.html", String(), false, printLocalTime);
   });
+
+    server.on("/", HTTP_GET, [](AsyncWebServerRequest *request){
+      while(a == true){
+        request->send(SPIFFS, "/index.html", String(), false, printLocalTime);
+      }
+    });
   
   // Route to load style.css file
   server.on("/style.css", HTTP_GET, [](AsyncWebServerRequest *request){
@@ -91,8 +103,12 @@ void setup(){
   
 
   // Route to set GPIO to HIGH
-  server.on("/reset", HTTP_GET, [](AsyncWebServerRequest *request){
-    digitalWrite(ledPin, HIGH);    
+  server.on("/reset", HTTP_GET, [](AsyncWebServerRequest *request){   
+    request->send(SPIFFS, "/index.html", String(), false, resetTime);
+  });
+
+  // Route to set GPIO to HIGH
+  server.on("/clock", HTTP_GET, [](AsyncWebServerRequest *request){   
     request->send(SPIFFS, "/index.html", String(), false, printLocalTime);
   });
   
@@ -102,5 +118,4 @@ void setup(){
 }
  
 void loop(){
-  
 }

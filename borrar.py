@@ -5,7 +5,7 @@ from collections import deque
 from pyqtgraph.Qt import QtGui, QtCore
 import serial
 
-ser = serial.Serial("COM3", 115200)
+ser = serial.Serial("COM4", 115200)
 
 class Graph:
     def __init__(self, ):

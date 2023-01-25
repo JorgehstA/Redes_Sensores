@@ -4,6 +4,7 @@ import pyqtgraph as pg
 from collections import deque
 from pyqtgraph.Qt import QtGui, QtCore
 from PyQt5 import QtGui, QtWidgets
+
 import serial
 
 ser = serial.Serial("COM4", 115200)

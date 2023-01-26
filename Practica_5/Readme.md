@@ -1,4 +1,4 @@
-#Trabajo asignatura
+# Trabajo asignatura
 
 -Dispositivo empleado: SiLabs Thunderboard Sense 2
 

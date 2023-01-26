@@ -8,8 +8,8 @@
 ESP32Time rtc(0);
 
 // Replace with your network credentials
-const char* ssid = "ONOA3690";
-const char* password = "fXH6Zvm7ppNV";
+const char* ssid = "RSense";
+const char* password = "";
 
 // Stores LED state
 String timeState;

@@ -1,23 +1,4 @@
-// Adafruit IO Publish Example
-//
-// Adafruit invests time and resources providing this open source code.
-// Please support Adafruit and open source hardware by purchasing
-// products from Adafruit!
-//
-// Written by Todd Treece for Adafruit Industries
-// Copyright (c) 2016 Adafruit Industries
-// Licensed under the MIT license.
-//
-// All text above must be included in any redistribution.
-
-/************************** Configuration ***********************************/
-
-// edit the config.h tab and enter your Adafruit IO credentials
-// and any additional configuration needed for WiFi, cellular,
-// or ethernet clients.
 #include "config.h"
-
-/************************ Example Starts Here *******************************/
 
 // this int will hold the current count for our sketch
 int count = 0;

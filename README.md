@@ -1,6 +1,6 @@
 # Redes_Sensores
 
-1.Para las prácticas 1,2,3,4 se ha utilizado SiLabs Thunderboard Sense 2
+1.Para las prácticas 1, 2, 3, 4 se ha utilizado SiLabs Thunderboard Sense 2
 
 2.Para las prácticas 4 y 5 se ha utilizado ESP32
 

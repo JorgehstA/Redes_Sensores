@@ -1,6 +1,6 @@
-## Redes_Sensores
+# Redes_Sensores
 
-#Practica 1: Control básico de microcontrolador
+## Practica 1: Control básico de microcontrolador
 
         -Programas: Led_control, blink_pwm, Humidity_temperature_sensor
         
@@ -14,7 +14,7 @@
 ![image](https://user-images.githubusercontent.com/81929580/214573064-0956aa66-fab0-43d0-b02a-122455021261.png)
 
 
-#Practica 2: Diseño de firmware basado en sistema operativo de tiempo real (RTOS)
+# Practica 2: Diseño de firmware basado en sistema operativo de tiempo real (RTOS)
 
         -Programas: Read_sensor_freetos
         
@@ -26,7 +26,7 @@
 ![image](https://user-images.githubusercontent.com/81929580/214577607-5f4a34cf-d004-4f4e-828d-b7b36887a93a.png)
 
 
-#Practica 3: Comunicación, gestión y representación de datos de sensores con Python
+## Practica 3: Comunicación, gestión y representación de datos de sensores con Python
 
         -Programas: Motion, fastrealTimeGraph
         
@@ -35,7 +35,7 @@
         En el ordenador se grafica en tiempo real los valores que secogen a través de un puerto COM, filtrando 
         datos anómalos y almacenando en un txt.
         
-#Practica 4: Comunicaciones WIFI y stack IP
+## Practica 4: Comunicaciones WIFI y stack IP
 
         1.	Conéctate a la red wifi del laboratorio o a una creada por el móvil como punto de acceso. Extrae tu IP. Comprueba la conectividad con Google mediante                   un ping.
         
@@ -125,7 +125,7 @@ Como resultado se obtiene el registro del contador en el servidor que se pueden 
 
 ![image](https://user-images.githubusercontent.com/81929580/214602778-3716f337-d4d7-4343-8bb5-fbeb8463f4b4.png)
 
-#Practica 5: Comunicaciones BLE y Bluetooth
+## Practica 5: Comunicaciones BLE y Bluetooth
 
 	-Programas: BLE_notify
 	
